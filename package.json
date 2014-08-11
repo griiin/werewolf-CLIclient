@@ -1,0 +1,25 @@
+{
+  "name": "werewolf-CLIclient",
+  "version": "0.0.0",
+  "description": "werewolf-CLIclient",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/griiin/werewolf-CLIclient.git"
+  },
+  "author": "Griin",
+  "license": "Apache v2",
+  "bugs": {
+    "url": "https://github.com/griiin/werewolf-CLIclient/issues"
+  },
+  "homepage": "https://github.com/griiin/werewolf-CLIclient",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "q": "^1.0.1",
+    "requirejs": "^2.1.14",
+    "socket.io-client": "^1.0.6"
+  }
+}
