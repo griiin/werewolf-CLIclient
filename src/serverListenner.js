@@ -34,7 +34,7 @@ function (_, Q, log) {
   };
 
   function basicHandler(data) {
-    log.input("Form server =>", data);
+    log.debug(data);
   }
 
   // return singleton

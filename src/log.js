@@ -27,8 +27,10 @@ function (_, colors) {
     coloredLog(colors.cyan, arguments);
   };
 
-  log.prototype.quit = function () {
-    console.log("See ya!".red);
+  log.prototype.debug = function () {
+    var args = Array.prototype.slice.call(arguments, 0);
+    args.unshift("[debug]".cyan);
+    console.log.apply(this, args);
   };
 
   function coloredLog (color, arguments) {

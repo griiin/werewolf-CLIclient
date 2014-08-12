@@ -90,7 +90,7 @@ function (_, Q, log, localStorage, rl, socketIO) {
     var deferred = Q.defer();
 
     if (!value) {
-      rl.question("What is the server port? [4242]", function (input) {
+      rl.ask("What is the server port? [4242]", function (input) {
         if (!input || input.length === 0) {
           _serverPort = '4242';
         } else {
@@ -122,7 +122,7 @@ function (_, Q, log, localStorage, rl, socketIO) {
     var deferred = Q.defer();
 
     if (!value) {
-      rl.question("What is the server url? [http://localhost]", function (input) {
+      rl.ask("What is the server url? [http://localhost]", function (input) {
         if (!input || input.length === 0) {
           _serverUrl = 'http://localhost';
         } else {

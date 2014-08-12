@@ -31,7 +31,7 @@ function (_, Q, log, serverConnecter, serverListenner) {
       throw "Fatal error: Can't listen server input if not connected";
     }
     var socket = serverConnecter.getSocket();
-    // serverListenner.listen(socket);
+    serverListenner.listen(socket);
   };
 
   // return singleton
