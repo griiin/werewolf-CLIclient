@@ -21,11 +21,15 @@ function (_, colors) {
 
   log.prototype.info = function () {
     coloredLog(colors.grey, arguments);
-  }
+  };
 
   log.prototype.input = function () {
     coloredLog(colors.cyan, arguments);
-  }
+  };
+
+  log.prototype.quit = function () {
+    console.log("See ya!".red);
+  };
 
   function coloredLog (color, arguments) {
     var coloredArgs = _.map(arguments, function (arg) {

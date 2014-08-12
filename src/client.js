@@ -7,7 +7,7 @@ function (_, Q, log, rl, server) {
   var _socket;
 
   var serverListenner = function () {
-    
+
   };
 
   serverListenner.prototype.listen = function () {
@@ -18,7 +18,7 @@ function (_, Q, log, rl, server) {
   function displayPrompt() {
     rl.question(">", function (input) {
       if (input === "quit") {
-        console.log("See ya!".red);
+        log.quit();
         rl.close();
         _socket.disconnect();
       } else {
