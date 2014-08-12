@@ -27,7 +27,9 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
-
 # jasmine
 _SpecRunner.html
 build
+
+#Werewolf client generated files
+.storage
