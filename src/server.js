@@ -22,6 +22,10 @@ function (_, Q, log, serverConnecter, serverListenner) {
     return deferred.promise;
   };
 
+  server.prototype.getSocket = function () {
+    return serverConnecter.getSocket();
+  };
+
   server.prototype.listen = function () {
     if (!_isConnected) {
       throw "Fatal error: Can't listen server input if not connected";

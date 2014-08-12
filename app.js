@@ -8,14 +8,11 @@ requirejs.config({
 requirejs(['lodash',
 'q',
 'log',
-'server'],
-function (_, Q, log, server) {
+'server',
+'client'],
+function (_, Q, log, server, client) {
   log.welcome();
   server.connectAsync()
-  // .then(server.listen)
-  // .then(client.listen);
-  // server.listen();
-  .then(function () {
-    log.input("Done");
-  })
+  .then(server.listen)
+  .then(client.listen);
 });

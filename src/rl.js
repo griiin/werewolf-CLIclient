@@ -10,6 +10,11 @@ function (readline) {
         input: process.stdin,
         output: process.stdout
       });
+      // instance = {
+      //   question: function(str, func) {
+      //     func();
+      //   }
+      // }
     }
     return instance;
   })();
