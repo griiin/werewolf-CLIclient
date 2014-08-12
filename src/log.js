@@ -24,7 +24,7 @@ function (_, colors) {
   }
 
   log.prototype.input = function () {
-    coloredLog(colors.blue, arguments);
+    coloredLog(colors.cyan, arguments);
   }
 
   function coloredLog (color, arguments) {

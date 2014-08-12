@@ -1,9 +1,10 @@
 define(['lodash',
 'q',
 'log',
-'serverConnecter'],
-function (_, Q, log, serverConnecter) {
-  var _socket;
+'serverConnecter',
+'serverListenner'],
+function (_, Q, log, serverConnecter, serverListenner) {
+  var _isConnected = false;
 
   var server = function () {
 
@@ -14,15 +15,20 @@ function (_, Q, log, serverConnecter) {
 
     serverConnecter.connectAsync()
     .then(function () {
-      _socket = serverConnecter.getSocket();
+      _isConnected = true;
       deferred.resolve();
     });
 
     return deferred.promise;
   };
 
-  server.prototype.listen
-
+  server.prototype.listen = function () {
+    if (!_isConnected) {
+      throw "Fatal error: Can't listen server input if not connected";
+    }
+    var socket = serverConnecter.getSocket();
+    // serverListenner.listen(socket);
+  };
 
   // return singleton
   var instance;
