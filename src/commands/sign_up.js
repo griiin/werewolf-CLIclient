@@ -14,7 +14,9 @@ function (_, Q, log, rl, server) {
 
     askUsername()
     .then(askPassword)
-    .then(signIn)
+    .then(askEmail)
+    .then(askGender)
+    .then(signUp)
     .then(function () {
       deferred.resolve();
     })
@@ -44,10 +46,32 @@ function (_, Q, log, rl, server) {
     return deferred.promise;
   }
 
-  function signIn() {
+  function askEmail() {
     var deferred = Q.defer();
 
-    server.getSocket().on("sign_in_response", function (response) {
+    rl.ask("Pick an email: ", function (input) {
+      _email = input;
+      deferred.resolve();
+    });
+
+    return deferred.promise;
+  }
+
+  function askGender() {
+    var deferred = Q.defer();
+
+    rl.ask("Pick a gender [male|female]: ", function (input) {
+      _gender = input;
+      deferred.resolve();
+    });
+
+    return deferred.promise;
+  }
+
+  function signUp() {
+    var deferred = Q.defer();
+
+    server.getSocket().on("sign_up_response", function (response) {
       if (response.result) {
         log.info("You're logged in.");
       } else {
@@ -55,9 +79,11 @@ function (_, Q, log, rl, server) {
       }
       deferred.resolve();
     });
-    server.getSocket().emit("sign_in", {
+    server.getSocket().emit("sign_up", {
       username: _username,
-      password: _password
+      password: _password,
+      email: _email,
+      gender: _gender
     });
 
     return deferred.promise;
