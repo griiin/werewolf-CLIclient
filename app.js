@@ -12,8 +12,10 @@ requirejs(['lodash',
 function (_, Q, log, server) {
   log.welcome();
   server.connectAsync()
-  .then(function () {
-    console.log("done");
-  });
+  // .then(server.listen)
+  // .then(client.listen);
   // server.listen();
+  .then(function () {
+    log.info("Done");
+  })
 });
