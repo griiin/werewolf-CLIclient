@@ -23,6 +23,10 @@ function (_, colors) {
     coloredLog(colors.grey, arguments);
   }
 
+  log.prototype.input = function () {
+    coloredLog(colors.blue, arguments);
+  }
+
   function coloredLog (color, arguments) {
     var coloredArgs = _.map(arguments, function (arg) {
       coloredArg = color(arg);

@@ -16,6 +16,6 @@ function (_, Q, log, server) {
   // .then(client.listen);
   // server.listen();
   .then(function () {
-    log.info("Done");
+    log.input("Done");
   })
 });
